@@ -1,0 +1,17 @@
+---
+import { PORTFOLIO_DATA } from '../portfolio-data'
+import TimelineItem from './TimelineItem.astro'
+import BriefcaseIcon from './icons/Briefcase.astro';
+---
+
+<h2 class="text-xl lg:text-3xl font-semibold mb-6 flex gap-x-3 items-center">
+  <BriefcaseIcon class="size-8"></BriefcaseIcon>
+  Experiencia Laboral
+</h2>
+<ul class="timeline timeline-snap-icon timeline-compact timeline-vertical">
+  {PORTFOLIO_DATA.experience.map(({ company, date, description, title }) =>
+      <TimelineItem time={date} title={`${title} — ${company}`} side="end">
+        <span class="text-sm lg:text-base text-pretty">{description}</span>
+      </TimelineItem>
+  )}
+</ul>

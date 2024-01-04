@@ -1,0 +1,60 @@
+---
+import Layout from '../layouts/Layout.astro'
+import Badge from '../components/Badge.astro'
+import GitHubIcon from '../components/icons/GitHub.astro'
+import LinkedInIcon from '../components/icons/LinkedIn.astro'
+import MailIcon from '../components/icons/Mail.astro'
+import BriefcaseIcon from '../components/icons/Briefcase.astro'
+import CodeIcon from '../components/icons/Code.astro'
+import SocialPill from '../components/SocialPill.astro'
+import SectionContainer from '../components/SectionContainer.astro'
+import Experience from '../components/Experience.astro'
+import Projects from '../components/Projects.astro';
+---
+
+<Layout
+  title="Portfolio de Mario - Desarrollador Web con más de 5 años de experiencia"
+  description="Contrata a Mario para crear tu aplicación web. Desarrollador Web especializado en todo tipo de aplicaciones"
+>
+  <main class="px-4">
+    <SectionContainer class="pt-44 pb-16">
+      <img class="rounded-full size-14 mb-4 transition" src="/picture.webp" alt="Mario photo">
+      <h1 class="text-gray-900 dark:text-white/90 text-3xl md:text-4xl lg:text-5xl font-bold flex flex-row gap-x-4 pb-6 lg:pb-10">
+        Hola, soy Mario
+        <a href="https://linkedin.com/in/mpriereira" target="_blank" rel="noopener" class="flex justify-center items-center">
+          <Badge>Abierto a ofertas</Badge>
+        </a>
+      </h1>
+
+      <h2 class="text-xl lg:text-2xl text-balance max-w-[700px] opacity-80">
+        <span>+5 años de experiencia.</span>
+        <span class="text-yellow-700 dark:text-yellow-200">Desarrollador Web.</span>
+        <span class="text-red-700 dark:text-red-300">De Madrid, España 🇪🇸.</span>
+        <span class="text-sky-700 dark:text-sky-200">Con ganas de conocer las últimas tecnologías y aplicar las mejores prácticas.</span>
+      </h2>
+
+      <nav class="flex gap-4 mt-6 flex-wrap">
+        <SocialPill href="https://linkedin.com/in/mpriereira">
+          <LinkedInIcon class="size-4 md:size-6" />
+          LinkedIn
+        </SocialPill>
+        <SocialPill href="https://github.com/mpriereira">
+          <GitHubIcon class="size-4 md:size-6" />
+          GitHub
+        </SocialPill>
+        <SocialPill href="mailto:mprietopereira@gmail.com">
+          <MailIcon class="size-4 md:size-6" />
+          mprietopereira@gmail.com
+        </SocialPill>
+      </nav>
+    </SectionContainer>
+
+    <SectionContainer id="experience" class="pb-16">
+      <Experience />
+    </SectionContainer>
+
+    <SectionContainer id="projects" class="pb-6">
+      <Projects />
+    </SectionContainer>
+  </main>
+</Layout>
