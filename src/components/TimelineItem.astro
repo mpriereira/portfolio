@@ -14,7 +14,7 @@ const { title, time, side } = Astro.props;
   </div>
   <div class={`timeline-${side} py-1.5 px-3`}>
     <time class="text-sm text-sky-700 dark:text-sky-200">{time}</time>
-    <div class="text-base lg:text-lg text-yellow-700 dark:text-yellow-200 font-semibold">{title}</div>
+    <div class="text-base md:text-lg text-yellow-700 dark:text-yellow-200 font-semibold">{title}</div>
     <slot />
   </div>
   <hr/>

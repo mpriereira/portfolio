@@ -11,7 +11,7 @@ import BriefcaseIcon from './icons/Briefcase.astro';
 <ul class="timeline timeline-snap-icon timeline-compact timeline-vertical">
   {PORTFOLIO_DATA.experience.map(({ company, date, description, title }) =>
       <TimelineItem time={date} title={`${title} — ${company}`} side="end">
-        <span class="text-sm lg:text-base text-pretty">{description}</span>
+        <span class="text-sm md:text-base text-pretty">{description}</span>
       </TimelineItem>
   )}
 </ul>

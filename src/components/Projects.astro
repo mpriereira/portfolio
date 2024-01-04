@@ -9,10 +9,18 @@ import { PORTFOLIO_DATA } from '../portfolio-data';
 </h2>
 {PORTFOLIO_DATA.projects.map((project) =>
   <article>
-    <h3 class="text-xl text-yellow-700 dark:text-yellow-200 font-semibold">
+    <h3 class="text-base md:text-lg lg:text-xl text-yellow-700 dark:text-yellow-200 font-semibold">
       {`${project.title} — ${project.header}`}
     </h3>
-    <p class="my-2 mb-5">{project.description}</p>
-    <img src={project.image} alt={`Captura de pantalla del proyecto ${project.title}`}>
+    <p class="my-2 mb-5 text-sm md:text-base text-pretty">
+      {project.description}
+    </p>
+    <a
+        href={project.url}
+        target="_blank"
+        rel="noopener noreferrer"
+    >
+      <img src={project.image} alt={`Captura de pantalla del proyecto ${project.title}`}>
+    </a>
   </article>
 )}

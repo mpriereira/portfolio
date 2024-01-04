@@ -15,11 +15,27 @@ const { title, description } = Astro.props;
 <html lang="en">
 <head>
   <meta charset="UTF-8"/>
-  <meta name="description" content={description}/>
   <meta name="viewport" content="width=device-width"/>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
   <meta name="generator" content={Astro.generator}/>
+
   <title>{title}</title>
+  <meta name="description" content={description}/>
+
+  <!-- Facebook Meta Tags -->
+  <meta property="og:url" content="https://mpriereira.dev">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Portfolio de Mario - Desarrollador Web con más de 5 años de experiencia">
+  <meta property="og:description" content="Contrata a Mario para crear tu aplicación web. Desarrollador Web especializado en todo tipo de aplicaciones">
+  <meta property="og:image" content="https://github.com/mpriereira/portfolio/assets/13751133/ec7aa740-616a-40b1-b424-4c5e684ac705">
+
+  <!-- Twitter Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta property="twitter:domain" content="mpriereira.dev">
+  <meta property="twitter:url" content="https://mpriereira.dev">
+  <meta name="twitter:title" content="Portfolio de Mario - Desarrollador Web con más de 5 años de experiencia">
+  <meta name="twitter:description" content="Contrata a Mario para crear tu aplicación web. Desarrollador Web especializado en todo tipo de aplicaciones">
+  <meta name="twitter:image" content="https://github.com/mpriereira/portfolio/assets/13751133/ec7aa740-616a-40b1-b424-4c5e684ac705">
 
   <script is:inline>
     const theme = (() => {

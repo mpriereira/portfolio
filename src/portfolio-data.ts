@@ -24,7 +24,8 @@ export const PORTFOLIO_DATA = {
       title: 'TodosJS',
       header: 'Minimalist application to manage your daily tasks',
       description: 'Creada desde cero con Vanilla JavaScript y webpack. Es una aplicación que permite gestionar tus tareas del día a día. Consta de linter, tests end-to-end y GitHub Actions.',
-      image: '/projects/todos-js.webp'
+      image: '/projects/todos-js.webp',
+      url: 'https://todos.mpriereira.dev'
     }
   ]
 }
