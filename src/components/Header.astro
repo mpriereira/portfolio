@@ -1,5 +1,5 @@
 ---
-import { ModeToggle } from '@/components/ui/ModeToggle'
+import ThemeToggle from './ThemeToggle.astro';
 ---
 
 <header class="flex justify-around lg:justify-evenly items-center sticky top-0 pt-2.5 z-10 mx-auto w-full xl:w-[1120px]">
@@ -9,5 +9,5 @@ import { ModeToggle } from '@/components/ui/ModeToggle'
     <a class="rounded-full px-4 transition hover:bg-gray-300/75 dark:hover:bg-white/5" href="/#about">Sobre mí</a>
     <a class="rounded-full px-4 transition hover:bg-gray-300/75 dark:hover:bg-white/5" href="/#contact">Contacto</a>
   </nav>
-  <ModeToggle client:load></ModeToggle>
+  <ThemeToggle />
 </header>
