@@ -8,8 +8,36 @@ interface Props {
   description: string
 }
 
-const { title, description } = Astro.props;
+const { title, description } = Astro.props
 ---
+
+<script is:inline>
+  let remove = null
+  const MEDIA = '(prefers-color-scheme: dark)'
+  const getThemePreference = () => {
+    if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+      return localStorage.getItem('theme')
+    }
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+  }
+
+  const updateTheme = () => {
+    if (remove != null) {
+      remove()
+    }
+    const matchMedia = window.matchMedia(MEDIA)
+    matchMedia.addEventListener('change', updateTheme)
+    remove = () => {
+      matchMedia.removeEventListener('change', updateTheme)
+    }
+
+    const themePreference = getThemePreference()
+    const isDark = themePreference === 'dark' || (themePreference === 'system' && matchMedia.matches)
+    document.documentElement.classList[isDark ? 'add' : 'remove']('dark')
+  }
+
+  updateTheme()
+</script>
 
 <!doctype html>
 <html lang="en">
@@ -36,21 +64,6 @@ const { title, description } = Astro.props;
   <meta name="twitter:title" content="Portfolio de Mario - Desarrollador Web con más de 5 años de experiencia">
   <meta name="twitter:description" content="Contrata a Mario para crear tu aplicación web. Desarrollador Web especializado en todo tipo de aplicaciones">
   <meta name="twitter:image" content="https://github.com/mpriereira/portfolio/assets/13751133/ec7aa740-616a-40b1-b424-4c5e684ac705">
-
-  <script is:inline>
-    const theme = (() => {
-      if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        return 'dark'
-      }
-      return 'light'
-    })()
-
-    if (theme === 'light') {
-      document.documentElement.classList.remove('dark')
-    } else {
-      document.documentElement.classList.add('dark')
-    }
-  </script>
 </head>
 <body class="relative text-black dark:text-white">
   <div
