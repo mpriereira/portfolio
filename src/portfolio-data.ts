@@ -21,11 +21,18 @@ export const PORTFOLIO_DATA = {
   ],
   projects: [
     {
-      title: 'TodosJS',
-      header: 'Minimalist application to manage your daily tasks',
-      description: 'Creada desde cero con Vanilla JavaScript y webpack. Es una aplicación que permite gestionar tus tareas del día a día. Consta de linter, tests end-to-end y GitHub Actions.',
-      image: '/projects/todos-js.webp',
-      url: 'https://todos.mpriereira.dev'
+      title: 'toaster-ts',
+      header: 'Librería para mostrar notificaciones en tu página',
+      description: 'Librería desarrollada en TypeScript para mostrar notificaciones en tu página web, sin importar el framework que utilices.',
+      image: '/projects/toaster-ts.webp',
+      url: 'https://toaster-ts.vercel.app/'
+    },
+    {
+      title: 'Spenfree',
+      header: 'Aplicación para gestión de gastos personales',
+      description: 'Aplicación web para llevar un registro de tus ingresos y gastos. Desarrollada con NextJS, TypeScript y Prisma ORM. Se encuentra en un estado muy inicial de desarrollo.',
+      image: '/projects/spenfree.webp',
+      url: 'https://spenfree.vercel.app/'
     }
   ]
 }
