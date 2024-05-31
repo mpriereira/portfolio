@@ -1,26 +1,108 @@
 ---
+import LinkButton from './LinkButton.astro'
 import CodeIcon from './icons/Code.astro'
-import { PORTFOLIO_DATA } from '../portfolio-data';
+import GitHubIcon from './icons/GitHub.astro'
+import LinkIcon from './icons/Link.astro'
+import NextJS from './icons/NextJS.astro'
+import Prisma from './icons/Prisma.astro'
+import Tailwind from './icons/Tailwind.astro'
+import TypeScript from './icons/TypeScript.astro'
+
+const TAGS = {
+  NEXT: {
+    name: 'Next.js',
+    class: 'bg-black text-white',
+    icon: NextJS,
+  },
+  TYPESCRIPT: {
+    name: 'TypeScript',
+    class: 'bg-[#3178C644] text-white',
+    icon: TypeScript,
+  },
+  PRISMA: {
+    name: 'Prisma',
+    class: 'bg-[#0C344B] text-white',
+    icon: Prisma,
+  },
+  TAILWIND: {
+    name: 'Tailwind CSS',
+    class: 'bg-[#003159] text-white',
+    icon: Tailwind,
+  },
+}
+
+const PROJECTS = [
+  {
+    title: 'toaster-ts',
+    header: 'Librería de notificaciones',
+    description: 'Librería desarrollada en TypeScript para mostrar notificaciones en tu página web, sin importar el framework que utilices. Incluye una página web demo desarrollada con NextJS y Tailwind CSS.',
+    image: '/projects/toaster-ts.webp',
+    link: 'https://toaster-ts.vercel.app/',
+    github: 'https://github.com/mpriereira/toaster-ts',
+    tags: [TAGS.TYPESCRIPT, TAGS.NEXT, TAGS.TAILWIND]
+  },
+  {
+    title: 'Spenfree',
+    header: 'Aplicación de gastos',
+    description: 'Aplicación web para llevar un registro de tus ingresos y gastos. Desarrollada con NextJS y Prisma ORM. Se encuentra en estado inicial de desarrollo.',
+    image: '/projects/spenfree.webp',
+    link: 'https://spenfree.vercel.app/',
+    github: 'https://github.com/mpriereira/spenfree',
+    tags: [TAGS.NEXT, TAGS.PRISMA]
+  }
+]
 ---
 
 <h2 class="text-xl lg:text-3xl font-semibold mb-6 flex gap-x-3 items-center">
   <CodeIcon class="size-8"></CodeIcon>
   Proyectos
 </h2>
-{PORTFOLIO_DATA.projects.map((project) =>
-  <article class="mb-10">
-    <h3 class="text-base md:text-lg lg:text-xl text-yellow-700 dark:text-yellow-200 font-semibold">
-      {`${project.title} — ${project.header}`}
-    </h3>
-    <p class="my-2 mb-5 text-sm md:text-base text-pretty">
-      {project.description}
-    </p>
-    <a
-        href={project.url}
-        target="_blank"
-        rel="noopener noreferrer"
-    >
-      <img src={project.image} alt={`Captura de pantalla del proyecto ${project.title}`}>
-    </a>
-  </article>
-)}
+<div class="flex flex-col gap-y-10 md:gap-y-16">
+  {PROJECTS.map(({ title, header, description, image, link, github, tags }) => (
+      <article class="flex flex-col gap-4 md:flex-row lg:gap-6 lg:gap-8">
+        <div class="w-full md:w-1/2">
+          <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
+            <img
+                class="object-cover object-top w-full h-56 transition duration-500 sm:h-full md:scale-110 md:hover:scale-105"
+                src={image}
+                alt={`Captura de pantalla del proyecto ${title}`}>
+          </div>
+        </div>
+        <div class="w-full md:w-1/2 md:max-w-lg">
+          <h3 class="text-base md:text-lg lg:text-xl text-yellow-700 dark:text-yellow-200 font-semibold">
+            {`${title} — ${header}`}
+          </h3>
+          <ul class="flex flex-row my-3 gap-x-2">
+            {tags.map((tag) => (
+                <li>
+                  <span
+                      class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 `}
+                  >
+                    <tag.icon class="size-4"/>
+                      {tag.name}
+                  </span>
+                </li>
+            ))}
+          </ul>
+          <p class="my-2 text-gray-600 dark:text-gray-300">
+            {description}
+          </p>
+          <footer class="flex items-end justify-start mt-5 gap-x-4">
+            {github && (
+                <LinkButton href={github}>
+                  <GitHubIcon class="size-6" />
+                  Code
+
+                </LinkButton>
+            )}
+            {link && (
+                <LinkButton href={link}>
+                  <LinkIcon class="size-4" />
+                  Preview
+                </LinkButton>
+            )}
+          </footer>
+        </div>
+      </article>
+  ))}
+</div>
